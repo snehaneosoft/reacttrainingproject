@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.cake-details-Container .ingredients .infredient-list > li {
+  padding: 15px 5px;
+  text-align: center;
+  min-width: 160px;
+  height: 100px;
+  box-sizing: border-box;
+}
+.cake-details-Container {
+  margin: 50px 50px 0;
+  padding: 25px;
+  background: #ececec;
+  border-radius: 5px;
+}
+.wid100{
+  width:100%
+}
