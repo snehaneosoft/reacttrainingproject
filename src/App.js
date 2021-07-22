@@ -3,6 +3,7 @@ import './App.css';
 import{Navbar} from './component/Navbar';
 import {Cakedetails} from './component/Cakedetails';
 
+
 function App() {
   return (
     <div className="App">
