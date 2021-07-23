@@ -35,10 +35,16 @@ function Navbar(props){
       
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-     
+    {props.isuserloggedin==false && <form class="form-inline my-2 my-lg-0">
+      
       <Link to = "/login"><button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button></Link>
-    </form>
+    </form>}
+
+    {props.isuserloggedin==true && <form class="form-inline my-2 my-lg-0">
+          <button  class="btn btn-primary my-2 my-sm-0" type="submit" style={{marginRight:"10px"}}>Logout</button>
+          <button  class="btn btn-success my-2 my-sm-0" type="submit">Cart</button>
+
+      </form>}
   </div>
  
 </nav>

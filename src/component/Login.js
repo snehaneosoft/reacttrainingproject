@@ -32,6 +32,14 @@ login = (event) =>{
         data:this.user
     }).then((response) => {
         console.log('response from login',response);
+        if(response.data.token){
+          this.props.loggedin()
+          localStorage.token = response.data.token;
+          this.props.history.push("/")
+        }
+        else{
+          alert("Invalid Credentials")
+        }
     },(error) => {
         console.log('error',error);
     })

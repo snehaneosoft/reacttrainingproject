@@ -9,17 +9,22 @@ import Signup from './component/Signup';
 import Search from './component/Search';
 import Pagenotfound from './component/Pagenotfound';
 import ReactDOM from 'react-dom'
-import {BrowserRouter, Route, Switch}  from 'react-router-dom'
+import {BrowserRouter, Route, Switch}  from 'react-router-dom';
+import {useState} from 'react'
 
 
 function App() {
+  var [isuserloggedin,setUserlogin] = useState(localStorage.token?true:false);
+  function loggedin(){
+    setUserlogin(true);
+  }
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar/>
+      <Navbar isuserloggedin = {isuserloggedin}/>
         <Switch>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/login"><Login /></Route>
+        <Route exact path="/login"><Login loggedin={loggedin}/></Route>
         <Route exact path="/cakdetails" component={Cakedetails}/>
         <Route exact path="/cake/:cakeid" component={Cakedetails}/>
         <Route exact path='/signup' component={Signup}/>
