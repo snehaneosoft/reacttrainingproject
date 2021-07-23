@@ -27,3 +27,32 @@ code {
 .wid100{
   width:100%
 }
+.login-wrapper{
+  margin: 50px 50px 0;
+  padding: 35px;
+  background: #343a40;
+  color: #fff;
+}
+.cakecard {
+  background: #1e232c;
+  padding: 20px 15px;
+  color: #fff;
+}
+.card{
+  border: unset;
+  margin: 10px 0;
+  background: transparent;
+}
+body{
+  background: #eee;
+}
+.card-body{
+  padding: 20px 0 0 0;
+  text-align: center;
+}
+.cakecontainer{
+  padding: 80px 0;
+}
+.signupdiv a{
+  color:#fff
+}

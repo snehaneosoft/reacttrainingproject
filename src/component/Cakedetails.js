@@ -1,6 +1,7 @@
-export function Cakedetails(){
+export function Cakedetails(props){
  return (
      <div class='cakedetails-wrapper cake-details-Container'>
+         <div><h1>{props.match.params.cakeid}</h1></div>
          <div class='row'>
          <div class='col-sm-6'>
             <div class="cake-img">
@@ -61,7 +62,7 @@ export function Cakedetails(){
                     </div>
                     </div>
                     <div  class="cake-buttons">
-                        <button  class="btn btn-custom cart"> Add To Cart </button>
+                        <button  class="btn btn-custom btn-primary cart"> Add To Cart </button>
                         </div>
                         </div>
 
