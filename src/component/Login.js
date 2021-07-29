@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import { Component } from "react"
 import {Link,withRouter} from "react-router-dom"
+import {connect} from 'react-redux'
 
 class Login extends Component{
   constructor(){
@@ -33,7 +34,11 @@ login = (event) =>{
     }).then((response) => {
         console.log('response from login',response);
         if(response.data.token){
-          this.props.loggedin()
+         // this.props.loggedin()
+         this.props.dispatch({
+           type:"LOGIN",
+           payload:response.data
+         })
           localStorage.token = response.data.token;
           this.props.history.push("/")
         }
@@ -74,4 +79,5 @@ return(
 }
 
 // withrouter used to add component defined as a tag with props object which contains history,map,location
-export default withRouter(Login)
+Login = withRouter(Login)
+export default connect() (Login)

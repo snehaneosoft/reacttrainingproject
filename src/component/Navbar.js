@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {Link,withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 function Navbar(props){
     var [title,setTitle] = useState("Cake gallary");
@@ -18,6 +19,12 @@ function Navbar(props){
     
     setSearchtext(event.target.value);
   }
+
+  function logout(){
+    localStorage.clear();
+    window.location.reload();
+  }
+
     return (
         
         <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark">
@@ -28,20 +35,22 @@ function Navbar(props){
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+    {props.name && <li class='color_white user-name'>Welcome {props.name}</li>}
     <form style={{marginLeft:"10em"}} class="form-inline my-2 my-lg-0">
     <input onChange={getsearchtext}  id="searchinputfield" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" aria-label="Search"/>
-   <button onClick={search} class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button onClick={search} class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
       
       
     </ul>
+    
     {props.isuserloggedin==false && <form class="form-inline my-2 my-lg-0">
       
       <Link to = "/login"><button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button></Link>
     </form>}
-
+      
     {props.isuserloggedin==true && <form class="form-inline my-2 my-lg-0">
-          <button  class="btn btn-primary my-2 my-sm-0" type="submit" style={{marginRight:"10px"}}>Logout</button>
+          <button onClick={logout} class="btn btn-primary my-2 my-sm-0" type="submit" style={{marginRight:"10px"}}>Logout</button>
           <button  class="btn btn-success my-2 my-sm-0" type="submit">Cart</button>
 
       </form>}
@@ -51,4 +60,11 @@ function Navbar(props){
     )
 }
  
-export default Navbar = withRouter(Navbar)
+Navbar = withRouter(Navbar)
+export default connect(function(state,props){
+  return {
+    isuserloggedin : state["AuthReducer"]["isuserloggedin"],
+    name: state["AuthReducer"]["user"] && state["AuthReducer"]["user"]["name"]
+  }
+
+}) (Navbar)  

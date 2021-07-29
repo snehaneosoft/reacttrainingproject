@@ -24,7 +24,7 @@ function App() {
       <Navbar isuserloggedin = {isuserloggedin}/>
         <Switch>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/login"><Login loggedin={loggedin}/></Route>
+        <Route exact path="/login"><Login /></Route>
         <Route exact path="/cakdetails" component={Cakedetails}/>
         <Route exact path="/cake/:cakeid" component={Cakedetails}/>
         <Route exact path='/signup' component={Signup}/>

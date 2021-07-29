@@ -1,31 +1,40 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
 import Cake from "./Cake"
 
-let cake = {
-    id:1,
-    name:"Chocolate Truffle",
-    price:500,
-    image:"cakecat1.jpg"
-  }
-  let cake1 = {
-    id:2,
-    name:"Fruit Cake",
-    price:800,
-    image:"fruit.webp"
-  }
-  let cake2 = {
-    id:3,
-    name:"Fairy Tale",
-    price:800,
-    image:"cakebanner4.jpg"
-  }
-  
+
+
+
+
+
 function Cakelist(props){
+  
+ 
+  var [cakes,setCakeslist] = useState([]);
+  useEffect(() =>{
+    let apiurl = process.env.REACT_APP_BASE_API + "/allcakes";
+    axios({
+      method:"get",
+      url:apiurl
+  
+    }).then((response) => {
+      // console.log('response of cakelist' + response.data);
+       setCakeslist(response.data.data);
+    
+   },(error) =>{
+
+     // console.log('responsoe of cakelist' + error)
+   })
+  },[])
+
+
     return (
         <div class="container cakecontainer">
             <div className="row">
-            <Cake history={props.history} cakedata={cake} />
-            <Cake history={props.history} cakedata={cake1} />
-            <Cake history={props.history} cakedata={cake2} />
+            {cakes.map((each,index)=>{
+           //   console.log("picking cakes one by one" , index , each)
+              return <Cake key={index} data={each} />
+            })}
             </div>
         </div>
     )

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
 }
 
 code {
@@ -55,4 +57,77 @@ body{
 }
 .signupdiv a{
   color:#fff
+}
+.cake-data {
+  text-align: center;
+}
+.cake-description-text p {
+  font-size: 22px;
+}
+.cake-description-text p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.cake-description-text p {
+  font-size: 22px;
+  font-weight: bold;
+}
+span.heading {
+  color: #333;
+}
+.price.highlight ,p.weight,p.flavour.highlight {
+  color: #b7380a;
+}
+
+p.type {
+  color: #3f51b5;
+}
+.rate p {
+  color: #009688;
+  font-size: 25px;
+  font-weight: bold;
+}
+.noOfReviews p {
+  color: #ff5722;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+ul.infredient-list li > ul li::before {
+  content: '';
+  padding: initial;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+ul.infredient-list li > ul li{
+  position: relative;
+}
+ul.infredient-list li {
+  display: inline-block;
+  padding: 15px;
+}
+
+ul.infredient-list {
+  padding-left: 0;
+}
+.color_white{
+  color: #fff;
+}
+.user-name{
+  line-height: 40px;
+  letter-spacing: .3px;
+  font-size: 17px;
+  text-transform: capitalize;
+}
+.addtocart {
+  background: transparent;
+  border: transparent;
+  color: #fff;
+  text-transform: capitalize;
+  padding: 0 18px;
 }
